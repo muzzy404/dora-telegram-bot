@@ -12,6 +12,8 @@ public class DoraBot extends TelegramLongPollingBot {
     // but I hope that nobody will no use it to damage my pretty bot
     private static final String token = "428910742:AAExeR2y1tZqZ50YR4q-jenyUE6XIjvexIg";
 
+    private boolean REVERSE_MODE = true;
+
     public void onUpdateReceived(Update update) {
 
         if (update.hasMessage() && update.getMessage().hasText()) {
@@ -21,7 +23,7 @@ public class DoraBot extends TelegramLongPollingBot {
             String messageText = update.getMessage().getText();
             System.out.println("User message: " + messageText);
 
-            messageText = (new StringBuffer(messageText)).reverse().toString();
+            messageText = generateAnswer(messageText);
 
             System.out.println("Bot  answer : " + messageText + "\n");
             SendMessage answer = new SendMessage()
@@ -47,5 +49,30 @@ public class DoraBot extends TelegramLongPollingBot {
 
     public String getBotToken() {
         return token;
+    }
+
+    private String generateAnswer(String userMsg) {
+
+        switch (userMsg) {
+            case Commands.REVERSE:
+
+                REVERSE_MODE = !REVERSE_MODE;
+                if (REVERSE_MODE)
+                    userMsg = "reverse mode ON";
+                else
+                    userMsg = "reverse mode OFF";
+
+                break;
+            default:
+                if (REVERSE_MODE) {
+                    userMsg = (new StringBuffer(userMsg)).reverse().toString();
+                }
+        }
+
+        return userMsg;
+    }
+
+    private class Commands {
+        public static final String REVERSE = "/reverse";
     }
 }
