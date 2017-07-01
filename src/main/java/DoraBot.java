@@ -8,6 +8,8 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
  */
 public class DoraBot extends TelegramLongPollingBot {
 
+    // probably it's not good idea to show token here
+    // but I hope that nobody will no use it to damage my pretty bot
     private static final String token = "428910742:AAExeR2y1tZqZ50YR4q-jenyUE6XIjvexIg";
 
     public void onUpdateReceived(Update update) {
