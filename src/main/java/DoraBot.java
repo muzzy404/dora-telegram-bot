@@ -21,9 +21,7 @@ public class DoraBot extends TelegramLongPollingBot {
             String messageText = update.getMessage().getText();
             System.out.println("User message: " + messageText);
 
-            if (messageText.toLowerCase().equals("привет")) {
-                messageText = "Тевирп";
-            }
+            messageText = (new StringBuffer(messageText)).reverse().toString();
 
             System.out.println("Bot  answer : " + messageText + "\n");
             SendMessage answer = new SendMessage()
