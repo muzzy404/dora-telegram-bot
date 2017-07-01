@@ -15,7 +15,7 @@ public class Main {
 
         // register our bot
         try {
-            botsApi.registerBot(new DoraBot());
+            botsApi.registerBot(new DoraBot(args[0]));
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
