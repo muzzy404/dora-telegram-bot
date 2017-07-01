@@ -17,6 +17,10 @@ public class DoraBot extends TelegramLongPollingBot {
             String messageText = update.getMessage().getText();
             Long chatId = update.getMessage().getChatId();
 
+            if (messageText.equals("Привет")) {
+                messageText = "Тевирп";
+            }
+
             SendMessage answer = new SendMessage()
                     .setChatId(chatId)
                     .setText(messageText);
