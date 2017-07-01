@@ -54,25 +54,25 @@ public class DoraBot extends TelegramLongPollingBot {
     private String generateAnswer(String userMsg) {
 
         switch (userMsg) {
-            case Commands.REVERSE:
-
-                REVERSE_MODE = !REVERSE_MODE;
-                if (REVERSE_MODE)
-                    userMsg = "reverse mode ON";
-                else
-                    userMsg = "reverse mode OFF";
-
+            case Commands.HELP:
+                userMsg = "no commands yet";
                 break;
+
+            case Commands.WHAT_TO_DO:
+                userMsg = "https://youtu.be/pkQ5yj_bITE";
+                break;
+
             default:
-                if (REVERSE_MODE) {
-                    userMsg = (new StringBuffer(userMsg)).reverse().toString();
-                }
+                userMsg = (new StringBuffer(userMsg)).reverse().toString();
         }
 
         return userMsg;
     }
 
     private class Commands {
-        public static final String REVERSE = "/reverse";
+        // commands
+        private static final String HELP = "/help";
+        // Easter Eggs
+        private static final String WHAT_TO_DO = "ля шо бы поделат";
     }
 }
