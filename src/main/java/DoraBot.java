@@ -59,7 +59,11 @@ public class DoraBot extends TelegramLongPollingBot {
                 break;
 
             case Commands.WHAT_TO_DO:
-                userMsg = "https://youtu.be/pkQ5yj_bITE";
+                userMsg = YouTubeLinks.WHAT_TO_DO;
+                break;
+
+            case Commands.WHAT_TO_BUY:
+                userMsg = YouTubeLinks.WHAT_TO_BUY;
                 break;
 
             default:
@@ -74,5 +78,11 @@ public class DoraBot extends TelegramLongPollingBot {
         private static final String HELP = "/help";
         // Easter Eggs
         private static final String WHAT_TO_DO = "ля шо бы поделат";
+        private static final String WHAT_TO_BUY = "ля шо бы купит";
+    }
+
+    private class YouTubeLinks {
+        private static final String WHAT_TO_DO = "https://youtu.be/pkQ5yj_bITE";
+        private static final String WHAT_TO_BUY = "https://youtu.be/E8IFiUT5zjM";
     }
 }
